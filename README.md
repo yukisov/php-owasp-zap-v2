@@ -3,6 +3,8 @@ php-owasp-zap-v2
 
 PHP client API for OWASP ZAP
 
+All API class files (except Zapv2.php) are generated automatically using `PhpAPIGenerator.java` offered by [yukisov/php-api-generator-for-owasp-zap](https://github.com/yukisov/php-api-generator-for-owasp-zap).
+
 ##Getting Started
 
 1. Git clone this repository on your local.
