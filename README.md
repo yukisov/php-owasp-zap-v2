@@ -16,12 +16,12 @@ PHP client API for OWASP ZAP
 	"repositories":[
 		{
 			"type": "git",
-			"url": "to/local/repository/of/php-owasp-zap-v2/"
+			"url": "to/php-owasp-zap-v2/"
 		}
 	],
 	"require": {
 		...
-		"zap/php-owasp-zap-v2": "dev-master"
+		"yukisov/php-owasp-zap-v2": "dev-master"
 		...
 	}
 	...
