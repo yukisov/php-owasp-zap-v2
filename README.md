@@ -68,5 +68,9 @@ print_r($alerts);
 
 ```
 
+## API
+OWASP ZAP Wiki: [ApiGen_Index - zaproxy](https://code.google.com/p/zaproxy/wiki/ApiGen_Index)
+
+
 ##License
 - MIT License
