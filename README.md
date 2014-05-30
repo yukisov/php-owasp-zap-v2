@@ -31,7 +31,7 @@ PHP client API for OWASP ZAP
 ##Usage
 Example:
 
-```
+```php
 <?php
 
 $loader = require "vendor/autoload.php";
