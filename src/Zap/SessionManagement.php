@@ -32,20 +32,20 @@ class SessionManagement {
 		$this->zap = $zap;
 	}
 
-    public function getSupportedSessionManagementMethods() {
-        return $this->zap->request($this->zap->base . 'sessionManagement/view/getSupportedSessionManagementMethods/')->{'getSupportedSessionManagementMethods'};
+	public function getSupportedSessionManagementMethods() {
+		return $this->zap->request($this->zap->base . 'sessionManagement/view/getSupportedSessionManagementMethods/')->{'getSupportedSessionManagementMethods'};
 	}
 
-    public function getSessionManagementMethodConfigParams($methodname) {
-        return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethodConfigParams/', array('methodName' => $methodname))->{'getSessionManagementMethodConfigParams'};
+	public function getSessionManagementMethodConfigParams($methodname) {
+		return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethodConfigParams/', array('methodName' => $methodname))->{'getSessionManagementMethodConfigParams'};
 	}
 
-    public function getSessionManagementMethod($contextid) {
-        return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethod/', array('contextId' => $contextid))->{'getSessionManagementMethod'};
+	public function getSessionManagementMethod($contextid) {
+		return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethod/', array('contextId' => $contextid))->{'getSessionManagementMethod'};
 	}
 
-    public function setSessionManagementMethod($contextid, $methodname, $methodconfigparams, $apikey='') {
-        return $this->zap->request($this->zap->base . 'sessionManagement/action/setSessionManagementMethod/', array('contextId' => $contextid, 'methodName' => $methodname, 'methodConfigParams' => $methodconfigparams));
+	public function setSessionManagementMethod($contextid, $methodname, $methodconfigparams, $apikey='') {
+		return $this->zap->request($this->zap->base . 'sessionManagement/action/setSessionManagementMethod/', array('contextId' => $contextid, 'methodName' => $methodname, 'methodConfigParams' => $methodconfigparams));
 	}
 
 }

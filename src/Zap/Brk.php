@@ -32,16 +32,16 @@ class Brk {
 		$this->zap = $zap;
 	}
 
-    public function brk($type, $scope, $state, $apikey='') {
-        return $this->zap->request($this->zap->base . 'break/action/break/', array('type' => $type, 'scope' => $scope, 'state' => $state));
+	public function brk($type, $scope, $state, $apikey='') {
+		return $this->zap->request($this->zap->base . 'break/action/break/', array('type' => $type, 'scope' => $scope, 'state' => $state));
 	}
 
-    public function addHttpBreakpoint($string, $location, $match, $inverse, $ignorecase, $apikey='') {
-        return $this->zap->request($this->zap->base . 'break/action/addHttpBreakpoint/', array('string' => $string, 'location' => $location, 'match' => $match, 'inverse' => $inverse, 'ignorecase' => $ignorecase));
+	public function addHttpBreakpoint($string, $location, $match, $inverse, $ignorecase, $apikey='') {
+		return $this->zap->request($this->zap->base . 'break/action/addHttpBreakpoint/', array('string' => $string, 'location' => $location, 'match' => $match, 'inverse' => $inverse, 'ignorecase' => $ignorecase));
 	}
 
-    public function removeHttpBreakpoint($string, $location, $match, $inverse, $ignorecase, $apikey='') {
-        return $this->zap->request($this->zap->base . 'break/action/removeHttpBreakpoint/', array('string' => $string, 'location' => $location, 'match' => $match, 'inverse' => $inverse, 'ignorecase' => $ignorecase));
+	public function removeHttpBreakpoint($string, $location, $match, $inverse, $ignorecase, $apikey='') {
+		return $this->zap->request($this->zap->base . 'break/action/removeHttpBreakpoint/', array('string' => $string, 'location' => $location, 'match' => $match, 'inverse' => $inverse, 'ignorecase' => $ignorecase));
 	}
 
 }

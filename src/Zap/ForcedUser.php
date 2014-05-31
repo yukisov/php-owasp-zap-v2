@@ -32,20 +32,20 @@ class ForcedUser {
 		$this->zap = $zap;
 	}
 
-    public function isForcedUserModeEnabled() {
-        return $this->zap->request($this->zap->base . 'forcedUser/view/isForcedUserModeEnabled/')->{'isForcedUserModeEnabled'};
+	public function isForcedUserModeEnabled() {
+		return $this->zap->request($this->zap->base . 'forcedUser/view/isForcedUserModeEnabled/')->{'isForcedUserModeEnabled'};
 	}
 
-    public function getForcedUser($contextid) {
-        return $this->zap->request($this->zap->base . 'forcedUser/view/getForcedUser/', array('contextId' => $contextid))->{'getForcedUser'};
+	public function getForcedUser($contextid) {
+		return $this->zap->request($this->zap->base . 'forcedUser/view/getForcedUser/', array('contextId' => $contextid))->{'getForcedUser'};
 	}
 
-    public function setForcedUser($contextid, $userid, $apikey='') {
-        return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUser/', array('contextId' => $contextid, 'userId' => $userid));
+	public function setForcedUser($contextid, $userid, $apikey='') {
+		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUser/', array('contextId' => $contextid, 'userId' => $userid));
 	}
 
-    public function setForcedUserModeEnabled($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUserModeEnabled/', array('boolean' => $boolean));
+	public function setForcedUserModeEnabled($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUserModeEnabled/', array('boolean' => $boolean));
 	}
 
 }

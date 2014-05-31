@@ -32,80 +32,80 @@ class Autoupdate {
 		$this->zap = $zap;
 	}
 
-    public function latestVersionNumber() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/latestVersionNumber/')->{'latestVersionNumber'};
+	public function latestVersionNumber() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/latestVersionNumber/')->{'latestVersionNumber'};
 	}
 
-    public function isLatestVersion() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/isLatestVersion/')->{'isLatestVersion'};
+	public function isLatestVersion() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/isLatestVersion/')->{'isLatestVersion'};
 	}
 
-    public function optionCheckOnStart() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckOnStart/')->{'CheckOnStart'};
+	public function optionCheckOnStart() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckOnStart/')->{'CheckOnStart'};
 	}
 
-    public function optionDownloadNewRelease() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionDownloadNewRelease/')->{'DownloadNewRelease'};
+	public function optionDownloadNewRelease() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionDownloadNewRelease/')->{'DownloadNewRelease'};
 	}
 
-    public function optionCheckAddonUpdates() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckAddonUpdates/')->{'CheckAddonUpdates'};
+	public function optionCheckAddonUpdates() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckAddonUpdates/')->{'CheckAddonUpdates'};
 	}
 
-    public function optionInstallAddonUpdates() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallAddonUpdates/')->{'InstallAddonUpdates'};
+	public function optionInstallAddonUpdates() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallAddonUpdates/')->{'InstallAddonUpdates'};
 	}
 
-    public function optionInstallScannerRules() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallScannerRules/')->{'InstallScannerRules'};
+	public function optionInstallScannerRules() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallScannerRules/')->{'InstallScannerRules'};
 	}
 
-    public function optionReportReleaseAddons() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportReleaseAddons/')->{'ReportReleaseAddons'};
+	public function optionReportReleaseAddons() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportReleaseAddons/')->{'ReportReleaseAddons'};
 	}
 
-    public function optionReportBetaAddons() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportBetaAddons/')->{'ReportBetaAddons'};
+	public function optionReportBetaAddons() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportBetaAddons/')->{'ReportBetaAddons'};
 	}
 
-    public function optionReportAlphaAddons() {
-        return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportAlphaAddons/')->{'ReportAlphaAddons'};
+	public function optionReportAlphaAddons() {
+		return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportAlphaAddons/')->{'ReportAlphaAddons'};
 	}
 
-    public function downloadLatestRelease($apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/downloadLatestRelease/')->{'downloadLatestRelease'};
+	public function downloadLatestRelease($apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/downloadLatestRelease/')->{'downloadLatestRelease'};
 	}
 
-    public function setOptionCheckOnStart($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckOnStart/', array('Boolean' => $boolean));
+	public function setOptionCheckOnStart($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckOnStart/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionDownloadNewRelease($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionDownloadNewRelease/', array('Boolean' => $boolean));
+	public function setOptionDownloadNewRelease($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionDownloadNewRelease/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionCheckAddonUpdates($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean));
+	public function setOptionCheckAddonUpdates($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionInstallAddonUpdates($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallAddonUpdates/', array('Boolean' => $boolean));
+	public function setOptionInstallAddonUpdates($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallAddonUpdates/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionInstallScannerRules($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallScannerRules/', array('Boolean' => $boolean));
+	public function setOptionInstallScannerRules($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallScannerRules/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionReportReleaseAddons($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean));
+	public function setOptionReportReleaseAddons($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionReportBetaAddons($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportBetaAddons/', array('Boolean' => $boolean));
+	public function setOptionReportBetaAddons($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportBetaAddons/', array('Boolean' => $boolean));
 	}
 
-    public function setOptionReportAlphaAddons($boolean, $apikey='') {
-        return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean));
+	public function setOptionReportAlphaAddons($boolean, $apikey='') {
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean));
 	}
 
 }

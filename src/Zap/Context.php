@@ -32,53 +32,53 @@ class Context {
 		$this->zap = $zap;
 	}
 
-    public function contextList() {
-        /*
-         * List context names of current session
-         */
-        return $this->zap->request($this->zap->base . 'context/view/contextList/')->{'contextList'};
+	/**
+	 * List context names of current session
+	 */
+	public function contextList() {
+		return $this->zap->request($this->zap->base . 'context/view/contextList/')->{'contextList'};
 	}
 
-    public function excludeRegexs($contextname) {
-        /*
-         * List excluded regexs for context
-         */
-        return $this->zap->request($this->zap->base . 'context/view/excludeRegexs/', array('contextName' => $contextname))->{'excludeRegexs'};
+	/**
+	 * List excluded regexs for context
+	 */
+	public function excludeRegexs($contextname) {
+		return $this->zap->request($this->zap->base . 'context/view/excludeRegexs/', array('contextName' => $contextname))->{'excludeRegexs'};
 	}
 
-    public function includeRegexs($contextname) {
-        /*
-         * List included regexs for context
-         */
-        return $this->zap->request($this->zap->base . 'context/view/includeRegexs/', array('contextName' => $contextname))->{'includeRegexs'};
+	/**
+	 * List included regexs for context
+	 */
+	public function includeRegexs($contextname) {
+		return $this->zap->request($this->zap->base . 'context/view/includeRegexs/', array('contextName' => $contextname))->{'includeRegexs'};
 	}
 
-    public function excludeFromContext($contextname, $regex, $apikey='') {
-        /*
-         * Add exclude regex to context
-         */
-        return $this->zap->request($this->zap->base . 'context/action/excludeFromContext/', array('contextName' => $contextname, 'regex' => $regex));
+	/**
+	 * Add exclude regex to context
+	 */
+	public function excludeFromContext($contextname, $regex, $apikey='') {
+		return $this->zap->request($this->zap->base . 'context/action/excludeFromContext/', array('contextName' => $contextname, 'regex' => $regex));
 	}
 
-    public function includeInContext($contextname, $regex, $apikey='') {
-        /*
-         * Add include regex to context
-         */
-        return $this->zap->request($this->zap->base . 'context/action/includeInContext/', array('contextName' => $contextname, 'regex' => $regex));
+	/**
+	 * Add include regex to context
+	 */
+	public function includeInContext($contextname, $regex, $apikey='') {
+		return $this->zap->request($this->zap->base . 'context/action/includeInContext/', array('contextName' => $contextname, 'regex' => $regex));
 	}
 
-    public function newContext($contextname, $apikey='') {
-        /*
-         * Creates a new context in the current session
-         */
-        return $this->zap->request($this->zap->base . 'context/action/newContext/', array('contextName' => $contextname));
+	/**
+	 * Creates a new context in the current session
+	 */
+	public function newContext($contextname, $apikey='') {
+		return $this->zap->request($this->zap->base . 'context/action/newContext/', array('contextName' => $contextname));
 	}
 
-    public function setContextInScope($contextname, $booleaninscope, $apikey='') {
-        /*
-         * Sets a context to in scope (contexts are in scope by default)
-         */
-        return $this->zap->request($this->zap->base . 'context/action/setContextInScope/', array('contextName' => $contextname, 'booleanInScope' => $booleaninscope));
+	/**
+	 * Sets a context to in scope (contexts are in scope by default)
+	 */
+	public function setContextInScope($contextname, $booleaninscope, $apikey='') {
+		return $this->zap->request($this->zap->base . 'context/action/setContextInScope/', array('contextName' => $contextname, 'booleanInScope' => $booleaninscope));
 	}
 
 }

@@ -32,27 +32,27 @@ class Acsrf {
 		$this->zap = $zap;
 	}
 
-    public function optionTokens() {
-        return $this->zap->request($this->zap->base . 'acsrf/view/optionTokens/')->{'Tokens'};
+	public function optionTokens() {
+		return $this->zap->request($this->zap->base . 'acsrf/view/optionTokens/')->{'Tokens'};
 	}
 
-    public function optionTokensNames() {
-        return $this->zap->request($this->zap->base . 'acsrf/view/optionTokensNames/')->{'TokensNames'};
+	public function optionTokensNames() {
+		return $this->zap->request($this->zap->base . 'acsrf/view/optionTokensNames/')->{'TokensNames'};
 	}
 
-    public function addOptionToken($string, $apikey='') {
-        return $this->zap->request($this->zap->base . 'acsrf/action/addOptionToken/', array('String' => $string));
+	public function addOptionToken($string, $apikey='') {
+		return $this->zap->request($this->zap->base . 'acsrf/action/addOptionToken/', array('String' => $string));
 	}
 
-    public function removeOptionToken($string, $apikey='') {
-        return $this->zap->request($this->zap->base . 'acsrf/action/removeOptionToken/', array('String' => $string));
+	public function removeOptionToken($string, $apikey='') {
+		return $this->zap->request($this->zap->base . 'acsrf/action/removeOptionToken/', array('String' => $string));
 	}
 
-    public function genForm($hrefid, $apikey='') {
-        /*
-         * Generate a form for testing lack of anti CSRF tokens - typically invoked via ZAP
-         */
-        return $this->zap->requestother($this->zap->baseother . 'acsrf/other/genForm/', array('hrefId' => $hrefid));
+	/**
+	 * Generate a form for testing lack of anti CSRF tokens - typically invoked via ZAP
+	 */
+	public function genForm($hrefid, $apikey='') {
+		return $this->zap->requestother($this->zap->baseother . 'acsrf/other/genForm/', array('hrefId' => $hrefid));
 	}
 
 }

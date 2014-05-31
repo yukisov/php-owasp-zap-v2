@@ -32,35 +32,35 @@ class Pscan {
 		$this->zap = $zap;
 	}
 
-    public function recordsToScan() {
-        /*
-         * The number of records the passive scanner still has to scan
-         */
-        return $this->zap->request($this->zap->base . 'pscan/view/recordsToScan/')->{'recordsToScan'};
+	/**
+	 * The number of records the passive scanner still has to scan
+	 */
+	public function recordsToScan() {
+		return $this->zap->request($this->zap->base . 'pscan/view/recordsToScan/')->{'recordsToScan'};
 	}
 
-    public function scanners() {
-        return $this->zap->request($this->zap->base . 'pscan/view/scanners/')->{'scanners'};
+	public function scanners() {
+		return $this->zap->request($this->zap->base . 'pscan/view/scanners/')->{'scanners'};
 	}
 
-    public function setEnabled($enabled, $apikey='') {
-        return $this->zap->request($this->zap->base . 'pscan/action/setEnabled/', array('enabled' => $enabled));
+	public function setEnabled($enabled, $apikey='') {
+		return $this->zap->request($this->zap->base . 'pscan/action/setEnabled/', array('enabled' => $enabled));
 	}
 
-    public function enableAllScanners($apikey='') {
-        return $this->zap->request($this->zap->base . 'pscan/action/enableAllScanners/')->{'enableAllScanners'};
+	public function enableAllScanners($apikey='') {
+		return $this->zap->request($this->zap->base . 'pscan/action/enableAllScanners/')->{'enableAllScanners'};
 	}
 
-    public function disableAllScanners($apikey='') {
-        return $this->zap->request($this->zap->base . 'pscan/action/disableAllScanners/')->{'disableAllScanners'};
+	public function disableAllScanners($apikey='') {
+		return $this->zap->request($this->zap->base . 'pscan/action/disableAllScanners/')->{'disableAllScanners'};
 	}
 
-    public function enableScanners($ids, $apikey='') {
-        return $this->zap->request($this->zap->base . 'pscan/action/enableScanners/', array('ids' => $ids));
+	public function enableScanners($ids, $apikey='') {
+		return $this->zap->request($this->zap->base . 'pscan/action/enableScanners/', array('ids' => $ids));
 	}
 
-    public function disableScanners($ids, $apikey='') {
-        return $this->zap->request($this->zap->base . 'pscan/action/disableScanners/', array('ids' => $ids));
+	public function disableScanners($ids, $apikey='') {
+		return $this->zap->request($this->zap->base . 'pscan/action/disableScanners/', array('ids' => $ids));
 	}
 
 }
