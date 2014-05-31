@@ -41,7 +41,13 @@ $loader = require "vendor/autoload.php";
 $target = "http://target.example.com/";
 
 $zap = new \Zap\Zapv2('tcp://localhost:8090');
-echo "version:" . $zap->core->version() . "\n";
+
+$version = @$zap->core->version();
+if (is_null($version)) {
+  echo "PHP API error\n";
+  exit();
+}
+echo "version: " . $version . "\n";
 
 echo "Spidering target " . $target . "\n";
 // Give the Spider a chance to start
