@@ -36,7 +36,7 @@ Example:
 ```php
 <?php
 
-$loader = require "vendor/autoload.php";
+require "vendor/autoload.php";
 
 $target = "http://target.example.com/";
 
@@ -46,8 +46,9 @@ $version = @$zap->core->version();
 if (is_null($version)) {
   echo "PHP API error\n";
   exit();
+} else {
+  echo "version: " . $version . "\n";
 }
-echo "version: " . $version . "\n";
 
 echo "Spidering target " . $target . "\n";
 // Give the Spider a chance to start
