@@ -7,7 +7,7 @@ All API class files (except Zapv2.php) are generated automatically using `PhpAPI
 
 ##Getting Started
 
-1. Add following lines to composer.json in your PHP project.
+1. Add following lines to `composer.json` in your PHP project.
 
   ```
   {
