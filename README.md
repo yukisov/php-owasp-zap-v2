@@ -47,24 +47,24 @@ if (is_null($version)) {
   echo "PHP API error\n";
   exit();
 } else {
-  echo "version: " . $version . "\n";
+  echo "version: ${version}\n";
 }
 
-echo "Spidering target " . $target . "\n";
+echo "Spidering target ${target}\n";
 // Give the Spider a chance to start
 $zap->spider->scan($target);
 while ((int)($zap->spider->status()) < 100) {
-  echo "Spider progress " . $zap->spider->status() . "%\n";
+  echo "Spider progress {$zap->spider->status()}%\n";
   sleep(2);
 }
 echo "Spider completed\n";
 // Give the passive scanner a chance to finish
 sleep(5);
 
-echo "Scanning target " . $target . "\n";
+echo "Scanning target ${target}\n";
 $zap->ascan->scan($target, 0, 0);
 while ((int)($zap->ascan->status()) < 100) {
-  echo "Scan progress " . $zap->ascan->status() . "%\n";
+  echo "Scan progress {$zap->ascan->status()}%\n";
   sleep(2);
 }
 echo "Scan completed\n";
