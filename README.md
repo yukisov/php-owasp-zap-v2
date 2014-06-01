@@ -7,28 +7,21 @@ All API class files (except Zapv2.php) are generated automatically using `PhpAPI
 
 ##Getting Started
 
-1. Git clone this repository on your local.
-2. Add the lines on the next section to the composer.json in your project.
-3. `$ php composer.phar install/update`
+1. Add following lines to composer.json in your PHP project.
 
-###composer.json on caller side
-```
-{
-	...
-	"repositories":[
-		{
-			"type": "git",
-			"url": "to/php-owasp-zap-v2/"
-		}
-	],
-	"require": {
-		...
-		"yukisov/php-owasp-zap-v2": "dev-master"
-		...
-	}
-	...
-}
-```
+  ```
+  {
+    ...
+    "require": {
+  	  ...
+  	  "yukisov/php-owasp-zap-v2": ">=0.1.0",
+      ...
+  	}
+    ...
+  }
+  ```
+
+2. `$ php composer.phar install/update`
 
 ##Usage
 Example:
