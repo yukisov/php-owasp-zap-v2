@@ -113,8 +113,20 @@ class Zapv2 {
 	 * @param string $url
 	 */
 	public function statusCode($url) {
+		// get the current proxy value
+		$sc_before = stream_context_get_default();
+		if (isset($sc_before['http']['proxy']) && $sc_before['http']['proxy'] != '') {
+			$proxy_before = $sc_before['http']['proxy'];
+		} else {
+			$proxy_before = null;
+		}
+
 		stream_context_set_default(array('http' => array('proxy' => $this->proxy)));
 		$headers = get_headers($url);
+
+		// put the proxy value back
+		stream_context_set_default(array('http' => array('proxy' => $proxy_before)));
+
 		return substr($headers[0], 9, 3);
 	}
 
