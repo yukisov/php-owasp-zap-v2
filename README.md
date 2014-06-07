@@ -35,7 +35,7 @@ require "vendor/autoload.php";
 
 $target = "http://target.example.com/";
 
-$zap = new \Zap\Zapv2('tcp://localhost:8090');
+$zap = new Zap\Zapv2('tcp://localhost:8090');
 
 $version = @$zap->core->version();
 if (is_null($version)) {
