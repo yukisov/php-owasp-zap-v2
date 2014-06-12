@@ -1,5 +1,5 @@
 {
-    "name": "yukisov/php-owasp-zap-v2",
+    "name": "zaproxy/php-owasp-zap-v2",
     "description": "PHP client API for OWASP ZAP",
     "keywords": ["ZAP"],
     "license": "MIT",
