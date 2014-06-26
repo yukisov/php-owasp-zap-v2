@@ -5,9 +5,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Yuki",
-            "email": "yukisov@gmail.com",
-            "homepage": "http://www.pupha.net"
+            "name": "ZAP development team",
+            "email": "",
+            "homepage": "https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project"
         }
     ],
     "require": {
