@@ -32,7 +32,7 @@ class HttpSessions {
 		$this->zap = $zap;
 	}
 
-	public function sessions($site, $session) {
+	public function sessions($site, $session='') {
 		return $this->zap->request($this->zap->base . 'httpSessions/view/sessions/', array('site' => $site, 'session' => $session))->{'sessions'};
 	}
 
@@ -44,7 +44,7 @@ class HttpSessions {
 		return $this->zap->request($this->zap->base . 'httpSessions/view/sessionTokens/', array('site' => $site))->{'sessionTokens'};
 	}
 
-	public function createEmptySession($site, $session, $apikey='') {
+	public function createEmptySession($site, $session='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'httpSessions/action/createEmptySession/', array('site' => $site, 'session' => $session));
 	}
 

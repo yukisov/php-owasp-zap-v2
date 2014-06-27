@@ -32,11 +32,11 @@ class Users {
 		$this->zap = $zap;
 	}
 
-	public function usersList($contextid) {
+	public function usersList($contextid='') {
 		return $this->zap->request($this->zap->base . 'users/view/usersList/', array('contextId' => $contextid))->{'usersList'};
 	}
 
-	public function getUserById($contextid, $userid) {
+	public function getUserById($contextid='', $userid='') {
 		return $this->zap->request($this->zap->base . 'users/view/getUserById/', array('contextId' => $contextid, 'userId' => $userid))->{'getUserById'};
 	}
 
@@ -64,7 +64,7 @@ class Users {
 		return $this->zap->request($this->zap->base . 'users/action/setUserName/', array('contextId' => $contextid, 'userId' => $userid, 'name' => $name));
 	}
 
-	public function setAuthenticationCredentials($contextid, $userid, $authcredentialsconfigparams, $apikey='') {
+	public function setAuthenticationCredentials($contextid, $userid, $authcredentialsconfigparams='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'users/action/setAuthenticationCredentials/', array('contextId' => $contextid, 'userId' => $userid, 'authCredentialsConfigParams' => $authcredentialsconfigparams));
 	}
 

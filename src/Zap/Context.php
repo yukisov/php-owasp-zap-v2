@@ -70,7 +70,7 @@ class Context {
 	/**
 	 * Creates a new context in the current session
 	 */
-	public function newContext($contextname, $apikey='') {
+	public function newContext($contextname='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'context/action/newContext/', array('contextName' => $contextname));
 	}
 

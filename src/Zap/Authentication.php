@@ -52,7 +52,7 @@ class Authentication {
 		return $this->zap->request($this->zap->base . 'authentication/view/getLoggedOutIndicator/', array('contextId' => $contextid))->{'getLoggedOutIndicator'};
 	}
 
-	public function setAuthenticationMethod($contextid, $authmethodname, $authmethodconfigparams, $apikey='') {
+	public function setAuthenticationMethod($contextid, $authmethodname, $authmethodconfigparams='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'authentication/action/setAuthenticationMethod/', array('contextId' => $contextid, 'authMethodName' => $authmethodname, 'authMethodConfigParams' => $authmethodconfigparams));
 	}
 

@@ -36,11 +36,11 @@ class Core {
 		return $this->zap->request($this->zap->base . 'core/view/alert/', array('id' => $id))->{'alert'};
 	}
 
-	public function alerts($baseurl, $start, $count) {
+	public function alerts($baseurl='', $start='', $count='') {
 		return $this->zap->request($this->zap->base . 'core/view/alerts/', array('baseurl' => $baseurl, 'start' => $start, 'count' => $count))->{'alerts'};
 	}
 
-	public function numberOfAlerts($baseurl) {
+	public function numberOfAlerts($baseurl='') {
 		return $this->zap->request($this->zap->base . 'core/view/numberOfAlerts/', array('baseurl' => $baseurl))->{'numberOfAlerts'};
 	}
 
@@ -60,11 +60,11 @@ class Core {
 		return $this->zap->request($this->zap->base . 'core/view/message/', array('id' => $id))->{'message'};
 	}
 
-	public function messages($baseurl, $start, $count) {
+	public function messages($baseurl='', $start='', $count='') {
 		return $this->zap->request($this->zap->base . 'core/view/messages/', array('baseurl' => $baseurl, 'start' => $start, 'count' => $count))->{'messages'};
 	}
 
-	public function numberOfMessages($baseurl) {
+	public function numberOfMessages($baseurl='') {
 		return $this->zap->request($this->zap->base . 'core/view/numberOfMessages/', array('baseurl' => $baseurl))->{'numberOfMessages'};
 	}
 
@@ -155,7 +155,7 @@ class Core {
 		return $this->zap->request($this->zap->base . 'core/action/shutdown/')->{'shutdown'};
 	}
 
-	public function newSession($name, $overwrite, $apikey='') {
+	public function newSession($name='', $overwrite='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'core/action/newSession/', array('name' => $name, 'overwrite' => $overwrite));
 	}
 
@@ -163,7 +163,7 @@ class Core {
 		return $this->zap->request($this->zap->base . 'core/action/loadSession/', array('name' => $name));
 	}
 
-	public function saveSession($name, $overwrite, $apikey='') {
+	public function saveSession($name, $overwrite='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'core/action/saveSession/', array('name' => $name, 'overwrite' => $overwrite));
 	}
 
@@ -187,8 +187,12 @@ class Core {
 		return $this->zap->request($this->zap->base . 'core/action/generateRootCA/')->{'generateRootCA'};
 	}
 
-	public function sendRequest($request, $followredirects, $apikey='') {
+	public function sendRequest($request, $followredirects='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'core/action/sendRequest/', array('request' => $request, 'followRedirects' => $followredirects));
+	}
+
+	public function deleteAllAlerts($apikey='') {
+		return $this->zap->request($this->zap->base . 'core/action/deleteAllAlerts/')->{'deleteAllAlerts'};
 	}
 
 	public function setOptionProxyChainName($string, $apikey='') {
@@ -255,11 +259,11 @@ class Core {
 		return $this->zap->requestother($this->zap->baseother . 'core/other/xmlreport/');
 	}
 
-	public function messagesHar($baseurl, $start, $count, $apikey='') {
+	public function messagesHar($baseurl='', $start='', $count='', $apikey='') {
 		return $this->zap->requestother($this->zap->baseother . 'core/other/messagesHar/', array('baseurl' => $baseurl, 'start' => $start, 'count' => $count));
 	}
 
-	public function sendHarRequest($request, $followredirects, $apikey='') {
+	public function sendHarRequest($request, $followredirects='', $apikey='') {
 		return $this->zap->requestother($this->zap->baseother . 'core/other/sendHarRequest/', array('request' => $request, 'followRedirects' => $followredirects));
 	}
 

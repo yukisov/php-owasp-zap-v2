@@ -40,7 +40,7 @@ class Ascan {
 		return $this->zap->request($this->zap->base . 'ascan/view/excludedFromScan/')->{'excludedFromScan'};
 	}
 
-	public function scanners($policyid) {
+	public function scanners($policyid='') {
 		return $this->zap->request($this->zap->base . 'ascan/view/scanners/', array('policyId' => $policyid))->{'scanners'};
 	}
 
@@ -88,7 +88,7 @@ class Ascan {
 		return $this->zap->request($this->zap->base . 'ascan/view/optionTargetParamsEnabledRPC/')->{'TargetParamsEnabledRPC'};
 	}
 
-	public function scan($url, $recurse, $inscopeonly, $apikey='') {
+	public function scan($url, $recurse='', $inscopeonly='', $apikey='') {
 		return $this->zap->request($this->zap->base . 'ascan/action/scan/', array('url' => $url, 'recurse' => $recurse, 'inScopeOnly' => $inscopeonly));
 	}
 
