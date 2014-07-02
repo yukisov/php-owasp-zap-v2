@@ -41,18 +41,18 @@ class Acsrf {
 	}
 
 	public function addOptionToken($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'acsrf/action/addOptionToken/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'acsrf/action/addOptionToken/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function removeOptionToken($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'acsrf/action/removeOptionToken/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'acsrf/action/removeOptionToken/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	/**
 	 * Generate a form for testing lack of anti CSRF tokens - typically invoked via ZAP
 	 */
 	public function genForm($hrefid, $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'acsrf/other/genForm/', array('hrefId' => $hrefid));
+		return $this->zap->requestother($this->zap->baseother . 'acsrf/other/genForm/', array('hrefId' => $hrefid, 'apikey' => $apikey));
 	}
 
 }

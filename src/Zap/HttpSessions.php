@@ -45,35 +45,35 @@ class HttpSessions {
 	}
 
 	public function createEmptySession($site, $session='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/createEmptySession/', array('site' => $site, 'session' => $session));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/createEmptySession/', array('site' => $site, 'session' => $session, 'apikey' => $apikey));
 	}
 
 	public function removeSession($site, $session, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/removeSession/', array('site' => $site, 'session' => $session));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/removeSession/', array('site' => $site, 'session' => $session, 'apikey' => $apikey));
 	}
 
 	public function setActiveSession($site, $session, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/setActiveSession/', array('site' => $site, 'session' => $session));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/setActiveSession/', array('site' => $site, 'session' => $session, 'apikey' => $apikey));
 	}
 
 	public function unsetActiveSession($site, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/unsetActiveSession/', array('site' => $site));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/unsetActiveSession/', array('site' => $site, 'apikey' => $apikey));
 	}
 
 	public function addSessionToken($site, $sessiontoken, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/addSessionToken/', array('site' => $site, 'sessionToken' => $sessiontoken));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/addSessionToken/', array('site' => $site, 'sessionToken' => $sessiontoken, 'apikey' => $apikey));
 	}
 
 	public function removeSessionToken($site, $sessiontoken, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/removeSessionToken/', array('site' => $site, 'sessionToken' => $sessiontoken));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/removeSessionToken/', array('site' => $site, 'sessionToken' => $sessiontoken, 'apikey' => $apikey));
 	}
 
 	public function setSessionTokenValue($site, $session, $sessiontoken, $tokenvalue, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/setSessionTokenValue/', array('site' => $site, 'session' => $session, 'sessionToken' => $sessiontoken, 'tokenValue' => $tokenvalue));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/setSessionTokenValue/', array('site' => $site, 'session' => $session, 'sessionToken' => $sessiontoken, 'tokenValue' => $tokenvalue, 'apikey' => $apikey));
 	}
 
 	public function renameSession($site, $oldsessionname, $newsessionname, $apikey='') {
-		return $this->zap->request($this->zap->base . 'httpSessions/action/renameSession/', array('site' => $site, 'oldSessionName' => $oldsessionname, 'newSessionName' => $newsessionname));
+		return $this->zap->request($this->zap->base . 'httpSessions/action/renameSession/', array('site' => $site, 'oldSessionName' => $oldsessionname, 'newSessionName' => $newsessionname, 'apikey' => $apikey));
 	}
 
 }

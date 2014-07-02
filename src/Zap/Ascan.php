@@ -89,87 +89,87 @@ class Ascan {
 	}
 
 	public function scan($url, $recurse='', $inscopeonly='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/scan/', array('url' => $url, 'recurse' => $recurse, 'inScopeOnly' => $inscopeonly));
+		return $this->zap->request($this->zap->base . 'ascan/action/scan/', array('url' => $url, 'recurse' => $recurse, 'inScopeOnly' => $inscopeonly, 'apikey' => $apikey));
 	}
 
 	public function clearExcludedFromScan($apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/clearExcludedFromScan/')->{'clearExcludedFromScan'};
+		return $this->zap->request($this->zap->base . 'ascan/action/clearExcludedFromScan/', array('apikey' => $apikey));
 	}
 
 	public function excludeFromScan($regex, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/excludeFromScan/', array('regex' => $regex));
+		return $this->zap->request($this->zap->base . 'ascan/action/excludeFromScan/', array('regex' => $regex, 'apikey' => $apikey));
 	}
 
 	public function enableAllScanners($apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/enableAllScanners/')->{'enableAllScanners'};
+		return $this->zap->request($this->zap->base . 'ascan/action/enableAllScanners/', array('apikey' => $apikey));
 	}
 
 	public function disableAllScanners($apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/disableAllScanners/')->{'disableAllScanners'};
+		return $this->zap->request($this->zap->base . 'ascan/action/disableAllScanners/', array('apikey' => $apikey));
 	}
 
 	public function enableScanners($ids, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/enableScanners/', array('ids' => $ids));
+		return $this->zap->request($this->zap->base . 'ascan/action/enableScanners/', array('ids' => $ids, 'apikey' => $apikey));
 	}
 
 	public function disableScanners($ids, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/disableScanners/', array('ids' => $ids));
+		return $this->zap->request($this->zap->base . 'ascan/action/disableScanners/', array('ids' => $ids, 'apikey' => $apikey));
 	}
 
 	public function setEnabledPolicies($ids, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setEnabledPolicies/', array('ids' => $ids));
+		return $this->zap->request($this->zap->base . 'ascan/action/setEnabledPolicies/', array('ids' => $ids, 'apikey' => $apikey));
 	}
 
 	public function setPolicyAttackStrength($id, $attackstrength, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setPolicyAttackStrength/', array('id' => $id, 'attackStrength' => $attackstrength));
+		return $this->zap->request($this->zap->base . 'ascan/action/setPolicyAttackStrength/', array('id' => $id, 'attackStrength' => $attackstrength, 'apikey' => $apikey));
 	}
 
 	public function setPolicyAlertThreshold($id, $alertthreshold, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setPolicyAlertThreshold/', array('id' => $id, 'alertThreshold' => $alertthreshold));
+		return $this->zap->request($this->zap->base . 'ascan/action/setPolicyAlertThreshold/', array('id' => $id, 'alertThreshold' => $alertthreshold, 'apikey' => $apikey));
 	}
 
 	public function setScannerAttackStrength($id, $attackstrength, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setScannerAttackStrength/', array('id' => $id, 'attackStrength' => $attackstrength));
+		return $this->zap->request($this->zap->base . 'ascan/action/setScannerAttackStrength/', array('id' => $id, 'attackStrength' => $attackstrength, 'apikey' => $apikey));
 	}
 
 	public function setScannerAlertThreshold($id, $alertthreshold, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setScannerAlertThreshold/', array('id' => $id, 'alertThreshold' => $alertthreshold));
+		return $this->zap->request($this->zap->base . 'ascan/action/setScannerAlertThreshold/', array('id' => $id, 'alertThreshold' => $alertthreshold, 'apikey' => $apikey));
 	}
 
 	public function setOptionAlertThreshold($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionAlertThreshold/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionAlertThreshold/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionAttackStrength($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionAttackStrength/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionAttackStrength/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionThreadPerHost($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionThreadPerHost/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionThreadPerHost/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionHostPerScan($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionHostPerScan/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionHostPerScan/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionMaxResultsToList($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionMaxResultsToList/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionMaxResultsToList/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionDelayInMs($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionDelayInMs/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionDelayInMs/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionHandleAntiCSRFTokens($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionHandleAntiCSRFTokens/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionHandleAntiCSRFTokens/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionTargetParamsInjectable($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionTargetParamsInjectable/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionTargetParamsInjectable/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionTargetParamsEnabledRPC($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'ascan/action/setOptionTargetParamsEnabledRPC/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'ascan/action/setOptionTargetParamsEnabledRPC/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 }

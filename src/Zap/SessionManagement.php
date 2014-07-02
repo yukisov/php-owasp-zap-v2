@@ -45,7 +45,7 @@ class SessionManagement {
 	}
 
 	public function setSessionManagementMethod($contextid, $methodname, $methodconfigparams='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'sessionManagement/action/setSessionManagementMethod/', array('contextId' => $contextid, 'methodName' => $methodname, 'methodConfigParams' => $methodconfigparams));
+		return $this->zap->request($this->zap->base . 'sessionManagement/action/setSessionManagementMethod/', array('contextId' => $contextid, 'methodName' => $methodname, 'methodConfigParams' => $methodconfigparams, 'apikey' => $apikey));
 	}
 
 }

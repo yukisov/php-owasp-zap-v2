@@ -152,119 +152,119 @@ class Core {
 	 * Shuts down ZAP
 	 */
 	public function shutdown($apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/shutdown/')->{'shutdown'};
+		return $this->zap->request($this->zap->base . 'core/action/shutdown/', array('apikey' => $apikey));
 	}
 
 	public function newSession($name='', $overwrite='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/newSession/', array('name' => $name, 'overwrite' => $overwrite));
+		return $this->zap->request($this->zap->base . 'core/action/newSession/', array('name' => $name, 'overwrite' => $overwrite, 'apikey' => $apikey));
 	}
 
 	public function loadSession($name, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/loadSession/', array('name' => $name));
+		return $this->zap->request($this->zap->base . 'core/action/loadSession/', array('name' => $name, 'apikey' => $apikey));
 	}
 
 	public function saveSession($name, $overwrite='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/saveSession/', array('name' => $name, 'overwrite' => $overwrite));
+		return $this->zap->request($this->zap->base . 'core/action/saveSession/', array('name' => $name, 'overwrite' => $overwrite, 'apikey' => $apikey));
 	}
 
 	public function snapshotSession($apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/snapshotSession/')->{'snapshotSession'};
+		return $this->zap->request($this->zap->base . 'core/action/snapshotSession/', array('apikey' => $apikey));
 	}
 
 	public function clearExcludedFromProxy($apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/clearExcludedFromProxy/')->{'clearExcludedFromProxy'};
+		return $this->zap->request($this->zap->base . 'core/action/clearExcludedFromProxy/', array('apikey' => $apikey));
 	}
 
 	public function excludeFromProxy($regex, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/excludeFromProxy/', array('regex' => $regex));
+		return $this->zap->request($this->zap->base . 'core/action/excludeFromProxy/', array('regex' => $regex, 'apikey' => $apikey));
 	}
 
 	public function setHomeDirectory($dir, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setHomeDirectory/', array('dir' => $dir));
+		return $this->zap->request($this->zap->base . 'core/action/setHomeDirectory/', array('dir' => $dir, 'apikey' => $apikey));
 	}
 
 	public function generateRootCA($apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/generateRootCA/')->{'generateRootCA'};
+		return $this->zap->request($this->zap->base . 'core/action/generateRootCA/', array('apikey' => $apikey));
 	}
 
 	public function sendRequest($request, $followredirects='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/sendRequest/', array('request' => $request, 'followRedirects' => $followredirects));
+		return $this->zap->request($this->zap->base . 'core/action/sendRequest/', array('request' => $request, 'followRedirects' => $followredirects, 'apikey' => $apikey));
 	}
 
 	public function deleteAllAlerts($apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/deleteAllAlerts/')->{'deleteAllAlerts'};
+		return $this->zap->request($this->zap->base . 'core/action/deleteAllAlerts/', array('apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainName($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainName/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainName/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainRealm($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainRealm/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainRealm/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainUserName($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainUserName/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainUserName/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainPassword($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPassword/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPassword/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainSkipName($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainSkipName/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainSkipName/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionHttpStateEnabled($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionHttpStateEnabled/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionHttpStateEnabled/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainPort($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPort/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPort/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionProxyChainPrompt($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPrompt/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionProxyChainPrompt/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionTimeoutInSecs($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionTimeoutInSecs/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionTimeoutInSecs/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionUseProxyChain($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionUseProxyChain/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionUseProxyChain/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionUseProxyChainAuth($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionUseProxyChainAuth/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionUseProxyChainAuth/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionSingleCookieRequestHeader($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'core/action/setOptionSingleCookieRequestHeader/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'core/action/setOptionSingleCookieRequestHeader/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function proxypac($apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/proxy.pac/');
+		return $this->zap->requestother($this->zap->baseother . 'core/other/proxy.pac/', array('apikey' => $apikey));
 	}
 
 	public function rootcert($apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/rootcert/');
+		return $this->zap->requestother($this->zap->baseother . 'core/other/rootcert/', array('apikey' => $apikey));
 	}
 
 	public function setproxy($proxy, $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/setproxy/', array('proxy' => $proxy));
+		return $this->zap->requestother($this->zap->baseother . 'core/other/setproxy/', array('proxy' => $proxy, 'apikey' => $apikey));
 	}
 
 	public function xmlreport($apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/xmlreport/');
+		return $this->zap->requestother($this->zap->baseother . 'core/other/xmlreport/', array('apikey' => $apikey));
 	}
 
 	public function messagesHar($baseurl='', $start='', $count='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/messagesHar/', array('baseurl' => $baseurl, 'start' => $start, 'count' => $count));
+		return $this->zap->requestother($this->zap->baseother . 'core/other/messagesHar/', array('baseurl' => $baseurl, 'start' => $start, 'count' => $count, 'apikey' => $apikey));
 	}
 
 	public function sendHarRequest($request, $followredirects='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'core/other/sendHarRequest/', array('request' => $request, 'followRedirects' => $followredirects));
+		return $this->zap->requestother($this->zap->baseother . 'core/other/sendHarRequest/', array('request' => $request, 'followRedirects' => $followredirects, 'apikey' => $apikey));
 	}
 
 }

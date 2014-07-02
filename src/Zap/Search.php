@@ -65,19 +65,19 @@ class Search {
 	}
 
 	public function harByUrlRegex($regex, $baseurl='', $start='', $count='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'search/other/harByUrlRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count));
+		return $this->zap->requestother($this->zap->baseother . 'search/other/harByUrlRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count, 'apikey' => $apikey));
 	}
 
 	public function harByRequestRegex($regex, $baseurl='', $start='', $count='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'search/other/harByRequestRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count));
+		return $this->zap->requestother($this->zap->baseother . 'search/other/harByRequestRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count, 'apikey' => $apikey));
 	}
 
 	public function harByResponseRegex($regex, $baseurl='', $start='', $count='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'search/other/harByResponseRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count));
+		return $this->zap->requestother($this->zap->baseother . 'search/other/harByResponseRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count, 'apikey' => $apikey));
 	}
 
 	public function harByHeaderRegex($regex, $baseurl='', $start='', $count='', $apikey='') {
-		return $this->zap->requestother($this->zap->baseother . 'search/other/harByHeaderRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count));
+		return $this->zap->requestother($this->zap->baseother . 'search/other/harByHeaderRegex/', array('regex' => $regex, 'baseurl' => $baseurl, 'start' => $start, 'count' => $count, 'apikey' => $apikey));
 	}
 
 }

@@ -41,11 +41,11 @@ class ForcedUser {
 	}
 
 	public function setForcedUser($contextid, $userid, $apikey='') {
-		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUser/', array('contextId' => $contextid, 'userId' => $userid));
+		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUser/', array('contextId' => $contextid, 'userId' => $userid, 'apikey' => $apikey));
 	}
 
 	public function setForcedUserModeEnabled($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUserModeEnabled/', array('boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'forcedUser/action/setForcedUserModeEnabled/', array('boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 }

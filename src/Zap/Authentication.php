@@ -53,15 +53,15 @@ class Authentication {
 	}
 
 	public function setAuthenticationMethod($contextid, $authmethodname, $authmethodconfigparams='', $apikey='') {
-		return $this->zap->request($this->zap->base . 'authentication/action/setAuthenticationMethod/', array('contextId' => $contextid, 'authMethodName' => $authmethodname, 'authMethodConfigParams' => $authmethodconfigparams));
+		return $this->zap->request($this->zap->base . 'authentication/action/setAuthenticationMethod/', array('contextId' => $contextid, 'authMethodName' => $authmethodname, 'authMethodConfigParams' => $authmethodconfigparams, 'apikey' => $apikey));
 	}
 
 	public function setLoggedInIndicator($contextid, $loggedinindicatorregex, $apikey='') {
-		return $this->zap->request($this->zap->base . 'authentication/action/setLoggedInIndicator/', array('contextId' => $contextid, 'loggedInIndicatorRegex' => $loggedinindicatorregex));
+		return $this->zap->request($this->zap->base . 'authentication/action/setLoggedInIndicator/', array('contextId' => $contextid, 'loggedInIndicatorRegex' => $loggedinindicatorregex, 'apikey' => $apikey));
 	}
 
 	public function setLoggedOutIndicator($contextid, $loggedoutindicatorregex, $apikey='') {
-		return $this->zap->request($this->zap->base . 'authentication/action/setLoggedOutIndicator/', array('contextId' => $contextid, 'loggedOutIndicatorRegex' => $loggedoutindicatorregex));
+		return $this->zap->request($this->zap->base . 'authentication/action/setLoggedOutIndicator/', array('contextId' => $contextid, 'loggedOutIndicatorRegex' => $loggedoutindicatorregex, 'apikey' => $apikey));
 	}
 
 }

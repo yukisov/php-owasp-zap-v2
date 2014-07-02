@@ -32,12 +32,20 @@ class Spider {
 		$this->zap = $zap;
 	}
 
-	public function status() {
-		return $this->zap->request($this->zap->base . 'spider/view/status/')->{'status'};
+	public function status($scanid='') {
+		return $this->zap->request($this->zap->base . 'spider/view/status/', array('scanId' => $scanid))->{'status'};
 	}
 
-	public function results() {
-		return $this->zap->request($this->zap->base . 'spider/view/results/')->{'results'};
+	public function results($scanid='') {
+		return $this->zap->request($this->zap->base . 'spider/view/results/', array('scanId' => $scanid))->{'results'};
+	}
+
+	public function fullResults($scanid) {
+		return $this->zap->request($this->zap->base . 'spider/view/fullResults/', array('scanId' => $scanid))->{'fullResults'};
+	}
+
+	public function scans() {
+		return $this->zap->request($this->zap->base . 'spider/view/scans/')->{'scans'};
 	}
 
 	public function excludedFromScan() {
@@ -113,79 +121,107 @@ class Spider {
 	}
 
 	public function scan($url, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/scan/', array('url' => $url));
+		return $this->zap->request($this->zap->base . 'spider/action/scan/', array('url' => $url, 'apikey' => $apikey));
 	}
 
 	public function scanAsUser($url, $contextid, $userid, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/scanAsUser/', array('url' => $url, 'contextId' => $contextid, 'userId' => $userid));
+		return $this->zap->request($this->zap->base . 'spider/action/scanAsUser/', array('url' => $url, 'contextId' => $contextid, 'userId' => $userid, 'apikey' => $apikey));
 	}
 
-	public function stop($apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/stop/')->{'stop'};
+	public function pause($scanid, $apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/pause/', array('scanId' => $scanid, 'apikey' => $apikey));
+	}
+
+	public function resume($scanid, $apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/resume/', array('scanId' => $scanid, 'apikey' => $apikey));
+	}
+
+	public function stop($scanid='', $apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/stop/', array('scanId' => $scanid, 'apikey' => $apikey));
+	}
+
+	public function removeScan($scanid, $apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/removeScan/', array('scanId' => $scanid, 'apikey' => $apikey));
+	}
+
+	public function pauseAllScans($apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/pauseAllScans/', array('apikey' => $apikey));
+	}
+
+	public function resumeAllScans($apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/resumeAllScans/', array('apikey' => $apikey));
+	}
+
+	public function stopAllScans($apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/stopAllScans/', array('apikey' => $apikey));
+	}
+
+	public function removeAllScans($apikey='') {
+		return $this->zap->request($this->zap->base . 'spider/action/removeAllScans/', array('apikey' => $apikey));
 	}
 
 	public function clearExcludedFromScan($apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/clearExcludedFromScan/')->{'clearExcludedFromScan'};
+		return $this->zap->request($this->zap->base . 'spider/action/clearExcludedFromScan/', array('apikey' => $apikey));
 	}
 
 	public function excludeFromScan($regex, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/excludeFromScan/', array('regex' => $regex));
+		return $this->zap->request($this->zap->base . 'spider/action/excludeFromScan/', array('regex' => $regex, 'apikey' => $apikey));
 	}
 
 	public function setOptionSkipURLString($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionSkipURLString/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionSkipURLString/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionHandleParameters($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionHandleParameters/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionHandleParameters/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionScopeString($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionScopeString/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionScopeString/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionUserAgent($string, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionUserAgent/', array('String' => $string));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionUserAgent/', array('String' => $string, 'apikey' => $apikey));
 	}
 
 	public function setOptionMaxDepth($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionMaxDepth/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionMaxDepth/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionThreadCount($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionThreadCount/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionThreadCount/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionPostForm($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionPostForm/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionPostForm/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionProcessForm($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionProcessForm/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionProcessForm/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionRequestWaitTime($integer, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionRequestWaitTime/', array('Integer' => $integer));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionRequestWaitTime/', array('Integer' => $integer, 'apikey' => $apikey));
 	}
 
 	public function setOptionParseComments($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseComments/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseComments/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionParseRobotsTxt($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseRobotsTxt/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseRobotsTxt/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionParseSVNEntries($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseSVNEntries/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseSVNEntries/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionParseGit($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseGit/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionParseGit/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionHandleODataParametersVisited($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'spider/action/setOptionHandleODataParametersVisited/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'spider/action/setOptionHandleODataParametersVisited/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 }

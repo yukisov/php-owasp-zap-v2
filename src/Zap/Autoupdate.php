@@ -73,39 +73,39 @@ class Autoupdate {
 	}
 
 	public function downloadLatestRelease($apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/downloadLatestRelease/')->{'downloadLatestRelease'};
+		return $this->zap->request($this->zap->base . 'autoupdate/action/downloadLatestRelease/', array('apikey' => $apikey));
 	}
 
 	public function setOptionCheckOnStart($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckOnStart/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckOnStart/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionDownloadNewRelease($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionDownloadNewRelease/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionDownloadNewRelease/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionCheckAddonUpdates($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionInstallAddonUpdates($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallAddonUpdates/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallAddonUpdates/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionInstallScannerRules($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallScannerRules/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallScannerRules/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionReportReleaseAddons($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionReportBetaAddons($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportBetaAddons/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportBetaAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 	public function setOptionReportAlphaAddons($boolean, $apikey='') {
-		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean));
+		return $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
 	}
 
 }
