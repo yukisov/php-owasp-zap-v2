@@ -89,4 +89,4 @@ OWASP ZAP Wiki: [ApiGen_Index - zaproxy](https://code.google.com/p/zaproxy/wiki/
 
 
 ##License
-- MIT License
+- Apache License, Version 2.0
