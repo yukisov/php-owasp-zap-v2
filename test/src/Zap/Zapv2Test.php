@@ -25,10 +25,10 @@ class Zapv2Test extends \PHPUnit_Framework_TestCase{
     /**
      * @test
      */
-    public function testStatus()
+    public function testStatusCode()
     {
         $zap = new \Zap\Zapv2($this->proxy);
         $res = $zap->statusCode($this->target_url);
         $this->assertSame("200", $res);
     }
-} 
+}
