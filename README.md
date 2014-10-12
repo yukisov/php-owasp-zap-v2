@@ -48,11 +48,11 @@ if (is_null($version)) {
 echo "Spidering target ${target}\n";
 // Give the Spider a chance to start
 $resObj = $zap->spider->scan($target, 'YOUR_IP_KEY');
-if (property_exists($resObj, 'code')) {
-    echo "Error:\n";
-    echo "  code = {$resObj->code}\n";
-    echo "  message = {$resObj->message}\n";
-    exit();
+try {
+  $res = $zap->expectOk($resObj);
+} catch (Exception $e) {
+  echo $e->getMessage() . PHP_EOL;
+  exit(1);
 }
 while ((int)($zap->spider->status()) < 100) {
   echo "Spider progress {$zap->spider->status()}%\n";
@@ -64,11 +64,11 @@ sleep(5);
 
 echo "Scanning target ${target}\n";
 $resObj = $zap->ascan->scan($target, 0, 0, 'YOUR_IP_KEY');
-if (property_exists($resObj, 'code')) {
-    echo "Error:\n";
-    echo "  code = {$resObj->code}\n";
-    echo "  message = {$resObj->message}\n";
-    exit();
+try {
+  $res = $zap->expectOk($resObj);
+} catch (Exception $e) {
+  echo $e->getMessage() . PHP_EOL;
+  exit(1);
 }
 while ((int)($zap->ascan->status()) < 100) {
   echo "Scan progress {$zap->ascan->status()}%\n";
