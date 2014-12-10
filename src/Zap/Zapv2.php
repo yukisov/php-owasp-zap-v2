@@ -88,7 +88,7 @@ class Zapv2 {
 	}
 
 	/**
-	 * Overwrite a filed
+	 * Overwrite a field
 	 *
 	 * mainly used for unit test
 	 *
