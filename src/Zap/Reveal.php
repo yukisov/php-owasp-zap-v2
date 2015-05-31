@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,18 +26,24 @@ namespace Zap;
 /**
  * This file was automatically generated.
  */
-class Params {
+class Reveal {
 
 	public function __construct ($zap) {
 		$this->zap = $zap;
 	}
 
 	/**
-	 * Shows the parameters for the specified site, or for all sites if the site is not specified
+	 * This component is optional and therefore the API will only work if it is installed
 	 */
-	public function params($site='') {
-		$res = $this->zap->request($this->zap->base . 'params/view/params/', array('site' => $site));
-		return reset($res);
+	public function reveal() {
+		return $this->zap->request($this->zap->base . 'reveal/view/reveal/')->{'reveal'};
+	}
+
+	/**
+	 * This component is optional and therefore the API will only work if it is installed
+	 */
+	public function setReveal($reveal, $apikey='') {
+		return $this->zap->request($this->zap->base . 'reveal/action/setReveal/', array('reveal' => $reveal, 'apikey' => $apikey));
 	}
 
 }

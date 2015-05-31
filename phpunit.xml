@@ -13,6 +13,7 @@
     <testsuites>
         <testsuite name="API Test Suite">
             <directory>./test/src/</directory>
+            <exclude>./test/excluded</exclude>
         </testsuite>
     </testsuites>
 </phpunit>
