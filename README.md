@@ -5,8 +5,6 @@ PHP client API for OWASP ZAP 2.4
 
 All API class files (except Zapv2.php) are generated automatically using `PhpAPIGenerator.java` offered by [PhpAPIGenerator.java - zaproxy - OWASP ZAP](https://code.google.com/p/zaproxy/source/browse/branches/2.4/src/org/zaproxy/zap/extension/api/PhpAPIGenerator.java).
 
-I'm planning to upload this API to Packagist soon.
-
 ##Getting Started
 
 1. Add following lines to `composer.json` in your PHP project.
