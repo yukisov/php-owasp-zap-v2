@@ -3,7 +3,7 @@ php-owasp-zap-v2
 
 PHP client API for OWASP ZAP 2.4
 
-All API class files (except Zapv2.php) are generated automatically using `PhpAPIGenerator.java` offered by [PhpAPIGenerator.java - zaproxy - OWASP ZAP](https://code.google.com/p/zaproxy/source/browse/branches/2.4/src/org/zaproxy/zap/extension/api/PhpAPIGenerator.java).
+All API class files (except Zapv2.php) are generated automatically using the ZAProxy API generator.
 
 ##Getting Started
 
@@ -85,7 +85,7 @@ print_r($alerts);
 ```
 
 ## API
-OWASP ZAP Wiki: [ApiGen_Index - zaproxy](https://code.google.com/p/zaproxy/wiki/ApiGen_Index)
+OWASP ZAP Wiki: [ApiGen_Index · zaproxy/zaproxy Wiki](https://github.com/zaproxy/zaproxy/wiki/ApiGen_Index)
 
 
 ##License
