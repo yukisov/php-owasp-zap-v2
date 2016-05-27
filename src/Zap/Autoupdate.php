@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright 2016 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,13 +32,49 @@ class Autoupdate {
 		$this->zap = $zap;
 	}
 
+	/**
+	 * Returns the latest version number
+	 */
 	public function latestVersionNumber() {
 		$res = $this->zap->request($this->zap->base . 'autoupdate/view/latestVersionNumber/');
 		return reset($res);
 	}
 
+	/**
+	 * Returns 'true' if ZAP is on the latest version
+	 */
 	public function isLatestVersion() {
 		$res = $this->zap->request($this->zap->base . 'autoupdate/view/isLatestVersion/');
+		return reset($res);
+	}
+
+	public function optionAddonDirectories() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionAddonDirectories/');
+		return reset($res);
+	}
+
+	public function optionDayLastChecked() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastChecked/');
+		return reset($res);
+	}
+
+	public function optionDayLastInstallWarned() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastInstallWarned/');
+		return reset($res);
+	}
+
+	public function optionDayLastUpdateWarned() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastUpdateWarned/');
+		return reset($res);
+	}
+
+	public function optionDownloadDirectory() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionDownloadDirectory/');
+		return reset($res);
+	}
+
+	public function optionCheckAddonUpdates() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckAddonUpdates/');
 		return reset($res);
 	}
 
@@ -52,11 +88,6 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function optionCheckAddonUpdates() {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckAddonUpdates/');
-		return reset($res);
-	}
-
 	public function optionInstallAddonUpdates() {
 		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallAddonUpdates/');
 		return reset($res);
@@ -67,8 +98,8 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function optionReportReleaseAddons() {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionReportReleaseAddons/');
+	public function optionReportAlphaAddons() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionReportAlphaAddons/');
 		return reset($res);
 	}
 
@@ -77,13 +108,21 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function optionReportAlphaAddons() {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionReportAlphaAddons/');
+	public function optionReportReleaseAddons() {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/view/optionReportReleaseAddons/');
 		return reset($res);
 	}
 
+	/**
+	 * Downloads the latest release, if any 
+	 */
 	public function downloadLatestRelease($apikey='') {
 		$res = $this->zap->request($this->zap->base . 'autoupdate/action/downloadLatestRelease/', array('apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionCheckAddonUpdates($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 
@@ -97,11 +136,6 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function setOptionCheckAddonUpdates($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionCheckAddonUpdates/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
 	public function setOptionInstallAddonUpdates($boolean, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionInstallAddonUpdates/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
@@ -112,8 +146,8 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function setOptionReportReleaseAddons($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
+	public function setOptionReportAlphaAddons($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 
@@ -122,8 +156,8 @@ class Autoupdate {
 		return reset($res);
 	}
 
-	public function setOptionReportAlphaAddons($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportAlphaAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
+	public function setOptionReportReleaseAddons($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'autoupdate/action/setOptionReportReleaseAddons/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 

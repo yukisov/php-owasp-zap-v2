@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright 2016 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,13 +32,24 @@ class Users {
 		$this->zap = $zap;
 	}
 
-	public function usersList($contextid='') {
-		$res = $this->zap->request($this->zap->base . 'users/view/usersList/', array('contextId' => $contextid));
+	public function usersList($contextid=NULL) {
+		$params = array();
+		if ($contextid !== NULL) {
+			$params['contextId'] = $contextid;
+		}
+		$res = $this->zap->request($this->zap->base . 'users/view/usersList/', $params);
 		return reset($res);
 	}
 
-	public function getUserById($contextid='', $userid='') {
-		$res = $this->zap->request($this->zap->base . 'users/view/getUserById/', array('contextId' => $contextid, 'userId' => $userid));
+	public function getUserById($contextid=NULL, $userid=NULL) {
+		$params = array();
+		if ($contextid !== NULL) {
+			$params['contextId'] = $contextid;
+		}
+		if ($userid !== NULL) {
+			$params['userId'] = $userid;
+		}
+		$res = $this->zap->request($this->zap->base . 'users/view/getUserById/', $params);
 		return reset($res);
 	}
 
@@ -72,8 +83,12 @@ class Users {
 		return reset($res);
 	}
 
-	public function setAuthenticationCredentials($contextid, $userid, $authcredentialsconfigparams='', $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'users/action/setAuthenticationCredentials/', array('contextId' => $contextid, 'userId' => $userid, 'authCredentialsConfigParams' => $authcredentialsconfigparams, 'apikey' => $apikey));
+	public function setAuthenticationCredentials($contextid, $userid, $authcredentialsconfigparams=NULL, $apikey='') {
+		$params = array('contextId' => $contextid, 'userId' => $userid, 'apikey' => $apikey);
+		if ($authcredentialsconfigparams !== NULL) {
+			$params['authCredentialsConfigParams'] = $authcredentialsconfigparams;
+		}
+		$res = $this->zap->request($this->zap->base . 'users/action/setAuthenticationCredentials/', $params);
 		return reset($res);
 	}
 

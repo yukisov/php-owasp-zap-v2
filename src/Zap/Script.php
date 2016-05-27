@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright 2016 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,36 +32,61 @@ class Script {
 		$this->zap = $zap;
 	}
 
+	/**
+	 * Lists the script engines available
+	 */
 	public function listEngines() {
 		$res = $this->zap->request($this->zap->base . 'script/view/listEngines/');
 		return reset($res);
 	}
 
+	/**
+	 * Lists the scripts available, with its engine, name, description, type and error state.
+	 */
 	public function listScripts() {
 		$res = $this->zap->request($this->zap->base . 'script/view/listScripts/');
 		return reset($res);
 	}
 
+	/**
+	 * Enables the script with the given name
+	 */
 	public function enable($scriptname, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'script/action/enable/', array('scriptName' => $scriptname, 'apikey' => $apikey));
 		return reset($res);
 	}
 
+	/**
+	 * Disables the script with the given name
+	 */
 	public function disable($scriptname, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'script/action/disable/', array('scriptName' => $scriptname, 'apikey' => $apikey));
 		return reset($res);
 	}
 
-	public function load($scriptname, $scripttype, $scriptengine, $filename, $scriptdescription='', $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'script/action/load/', array('scriptName' => $scriptname, 'scriptType' => $scripttype, 'scriptEngine' => $scriptengine, 'fileName' => $filename, 'scriptDescription' => $scriptdescription, 'apikey' => $apikey));
+	/**
+	 * Loads a script into ZAP from the given local file, with the given name, type and engine, optionally with a description
+	 */
+	public function load($scriptname, $scripttype, $scriptengine, $filename, $scriptdescription=NULL, $apikey='') {
+		$params = array('scriptName' => $scriptname, 'scriptType' => $scripttype, 'scriptEngine' => $scriptengine, 'fileName' => $filename, 'apikey' => $apikey);
+		if ($scriptdescription !== NULL) {
+			$params['scriptDescription'] = $scriptdescription;
+		}
+		$res = $this->zap->request($this->zap->base . 'script/action/load/', $params);
 		return reset($res);
 	}
 
+	/**
+	 * Removes the script with the given name
+	 */
 	public function remove($scriptname, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'script/action/remove/', array('scriptName' => $scriptname, 'apikey' => $apikey));
 		return reset($res);
 	}
 
+	/**
+	 * Runs the stand alone script with the give name
+	 */
 	public function runStandAloneScript($scriptname, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'script/action/runStandAloneScript/', array('scriptName' => $scriptname, 'apikey' => $apikey));
 		return reset($res);

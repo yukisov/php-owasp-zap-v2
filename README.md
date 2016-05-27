@@ -47,7 +47,7 @@ if (is_null($version)) {
 echo "Spidering target ${target}\n";
 
 // Response JSON looks like {"scan":"1"}
-$scan_id = $zap->spider->scan($target, 0, $api_key);
+$scan_id = $zap->spider->scan($target, null, null, null, $api_key);
 $count = 0;
 while (true) {
   if ($count > 10) exit();
@@ -64,7 +64,7 @@ sleep(5);
 
 echo "Scanning target ${target}\n";
 // Response JSON for error looks like {"code":"url_not_found", "message":"URL is not found"}
-$scan_id = $zap->ascan->scan($target, '', '', '', '', '', $api_key);
+$scan_id = $zap->ascan->scan($target, null, null, null, null, null, $api_key);
 $count = 0;
 while (true) {
   if ($count > 10) exit();

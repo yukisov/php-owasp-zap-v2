@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright 2016 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,8 +35,12 @@ class Params {
 	/**
 	 * Shows the parameters for the specified site, or for all sites if the site is not specified
 	 */
-	public function params($site='') {
-		$res = $this->zap->request($this->zap->base . 'params/view/params/', array('site' => $site));
+	public function params($site=NULL) {
+		$params = array();
+		if ($site !== NULL) {
+			$params['site'] = $site;
+		}
+		$res = $this->zap->request($this->zap->base . 'params/view/params/', $params);
 		return reset($res);
 	}
 

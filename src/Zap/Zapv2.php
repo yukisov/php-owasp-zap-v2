@@ -37,8 +37,10 @@ use Zap\ImportLogFiles;
 use Zap\Params;
 use Zap\Pnh;
 use Zap\Pscan;
+use Zap\Reveal;
 use Zap\Script;
 use Zap\Search;
+use Zap\Selenium;
 use Zap\SessionManagement;
 use Zap\Spider;
 use Zap\Users;
@@ -84,8 +86,10 @@ class Zapv2 {
 		$this->params = new Params($this);
 		$this->pnh = new Pnh($this);
 		$this->pscan = new Pscan($this);
+		$this->reveal = new Reveal($this);
 		$this->script = new Script($this);
 		$this->search = new Search($this);
+		$this->selenium = new Selenium($this);
 		$this->sessionManagement = new SessionManagement($this);
 		$this->spider = new Spider($this);
 		$this->users = new Users($this);
@@ -123,7 +127,7 @@ class Zapv2 {
 	 * Opens a url
 	 *
 	 * @param $url
-	 * @return string
+	 * @return string || false
 	 */
 	public function sendRequest($url) {
 		$context = stream_context_create(array('http' => array('proxy' => $this->proxy)));
@@ -160,9 +164,13 @@ class Zapv2 {
 	 * @param string $url the url to GET at.
 	 * @param array $get the disctionary to turn into GET variables.
 	 * @return mixed
+	 * @throws ZapError
 	 */
 	public function request($url, $get=array()) {
 		$response = $this->sendRequest($url . '?' . $this->urlencode($get));
+		if ($response === false) {
+			throw new ZapError("Connection error (proxy: {$this->proxy})");
+		}
 		$response = trim($response, '()');
 		return json_decode($response, true);
 	}

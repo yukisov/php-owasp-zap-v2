@@ -4,7 +4,7 @@
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2015 the ZAP development team
+ * Copyright 2016 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,13 +32,21 @@ class Spider {
 		$this->zap = $zap;
 	}
 
-	public function status($scanid='') {
-		$res = $this->zap->request($this->zap->base . 'spider/view/status/', array('scanId' => $scanid));
+	public function status($scanid=NULL) {
+		$params = array();
+		if ($scanid !== NULL) {
+			$params['scanId'] = $scanid;
+		}
+		$res = $this->zap->request($this->zap->base . 'spider/view/status/', $params);
 		return reset($res);
 	}
 
-	public function results($scanid='') {
-		$res = $this->zap->request($this->zap->base . 'spider/view/results/', array('scanId' => $scanid));
+	public function results($scanid=NULL) {
+		$params = array();
+		if ($scanid !== NULL) {
+			$params['scanId'] = $scanid;
+		}
+		$res = $this->zap->request($this->zap->base . 'spider/view/results/', $params);
 		return reset($res);
 	}
 
@@ -57,13 +65,33 @@ class Spider {
 		return reset($res);
 	}
 
+	public function optionDomainsAlwaysInScope() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScope/');
+		return reset($res);
+	}
+
+	public function optionDomainsAlwaysInScopeEnabled() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScopeEnabled/');
+		return reset($res);
+	}
+
+	public function optionHandleParameters() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionHandleParameters/');
+		return reset($res);
+	}
+
 	public function optionMaxDepth() {
 		$res = $this->zap->request($this->zap->base . 'spider/view/optionMaxDepth/');
 		return reset($res);
 	}
 
-	public function optionScopeText() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionScopeText/');
+	public function optionMaxScansInUI() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionMaxScansInUI/');
+		return reset($res);
+	}
+
+	public function optionRequestWaitTime() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionRequestWaitTime/');
 		return reset($res);
 	}
 
@@ -72,8 +100,53 @@ class Spider {
 		return reset($res);
 	}
 
+	public function optionScopeText() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionScopeText/');
+		return reset($res);
+	}
+
+	public function optionSkipURLString() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionSkipURLString/');
+		return reset($res);
+	}
+
 	public function optionThreadCount() {
 		$res = $this->zap->request($this->zap->base . 'spider/view/optionThreadCount/');
+		return reset($res);
+	}
+
+	public function optionUserAgent() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionUserAgent/');
+		return reset($res);
+	}
+
+	public function optionHandleODataParametersVisited() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionHandleODataParametersVisited/');
+		return reset($res);
+	}
+
+	public function optionParseComments() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseComments/');
+		return reset($res);
+	}
+
+	public function optionParseGit() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseGit/');
+		return reset($res);
+	}
+
+	public function optionParseRobotsTxt() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseRobotsTxt/');
+		return reset($res);
+	}
+
+	public function optionParseSVNEntries() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseSVNEntries/');
+		return reset($res);
+	}
+
+	public function optionParseSitemapXml() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseSitemapXml/');
 		return reset($res);
 	}
 
@@ -87,68 +160,11 @@ class Spider {
 		return reset($res);
 	}
 
-	public function optionSkipURLString() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionSkipURLString/');
-		return reset($res);
-	}
-
-	public function optionRequestWaitTime() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionRequestWaitTime/');
-		return reset($res);
-	}
-
-	public function optionUserAgent() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionUserAgent/');
-		return reset($res);
-	}
-
-	public function optionParseComments() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseComments/');
-		return reset($res);
-	}
-
-	public function optionParseRobotsTxt() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseRobotsTxt/');
-		return reset($res);
-	}
-
-	public function optionParseSitemapXml() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseSitemapXml/');
-		return reset($res);
-	}
-
-	public function optionParseSVNEntries() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseSVNEntries/');
-		return reset($res);
-	}
-
-	public function optionParseGit() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionParseGit/');
-		return reset($res);
-	}
-
-	public function optionHandleParameters() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionHandleParameters/');
-		return reset($res);
-	}
-
-	public function optionHandleODataParametersVisited() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionHandleODataParametersVisited/');
-		return reset($res);
-	}
-
-	public function optionDomainsAlwaysInScope() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScope/');
-		return reset($res);
-	}
-
-	public function optionDomainsAlwaysInScopeEnabled() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScopeEnabled/');
-		return reset($res);
-	}
-
-	public function optionMaxScansInUI() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionMaxScansInUI/');
+	/**
+	 * Sets whether or not the 'Referer' header should be sent while spidering
+	 */
+	public function optionSendRefererHeader() {
+		$res = $this->zap->request($this->zap->base . 'spider/view/optionSendRefererHeader/');
 		return reset($res);
 	}
 
@@ -158,20 +174,35 @@ class Spider {
 	}
 
 	/**
-	 * Sets whether or not the 'Referer' header should be sent while spidering
+	 * Runs the spider against the given URL. Optionally, the 'maxChildren' parameter can be set to limit the number of children scanned, the 'recurse' parameter can be used to prevent the spider from seeding recursively and the parameter 'contextName' can be used to constrain the scan to a Context.
 	 */
-	public function optionSendRefererHeader() {
-		$res = $this->zap->request($this->zap->base . 'spider/view/optionSendRefererHeader/');
+	public function scan($url, $maxchildren=NULL, $recurse=NULL, $contextname=NULL, $apikey='') {
+		$params = array('url' => $url, 'apikey' => $apikey);
+		if ($maxchildren !== NULL) {
+			$params['maxChildren'] = $maxchildren;
+		}
+		if ($recurse !== NULL) {
+			$params['recurse'] = $recurse;
+		}
+		if ($contextname !== NULL) {
+			$params['contextName'] = $contextname;
+		}
+		$res = $this->zap->request($this->zap->base . 'spider/action/scan/', $params);
 		return reset($res);
 	}
 
-	public function scan($url, $maxchildren='', $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/scan/', array('url' => $url, 'maxChildren' => $maxchildren, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function scanAsUser($url, $contextid, $userid, $maxchildren, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/scanAsUser/', array('url' => $url, 'contextId' => $contextid, 'userId' => $userid, 'maxChildren' => $maxchildren, 'apikey' => $apikey));
+	/**
+	 * Runs the spider from the perspective of a User, obtained using the given Context ID and User ID. See 'scan' action for more details.
+	 */
+	public function scanAsUser($url, $contextid, $userid, $maxchildren=NULL, $recurse=NULL, $apikey='') {
+		$params = array('url' => $url, 'contextId' => $contextid, 'userId' => $userid, 'apikey' => $apikey);
+		if ($maxchildren !== NULL) {
+			$params['maxChildren'] = $maxchildren;
+		}
+		if ($recurse !== NULL) {
+			$params['recurse'] = $recurse;
+		}
+		$res = $this->zap->request($this->zap->base . 'spider/action/scanAsUser/', $params);
 		return reset($res);
 	}
 
@@ -185,8 +216,12 @@ class Spider {
 		return reset($res);
 	}
 
-	public function stop($scanid='', $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/stop/', array('scanId' => $scanid, 'apikey' => $apikey));
+	public function stop($scanid=NULL, $apikey='') {
+		$params = array('apikey' => $apikey);
+		if ($scanid !== NULL) {
+			$params['scanId'] = $scanid;
+		}
+		$res = $this->zap->request($this->zap->base . 'spider/action/stop/', $params);
 		return reset($res);
 	}
 
@@ -225,11 +260,6 @@ class Spider {
 		return reset($res);
 	}
 
-	public function setOptionSkipURLString($string, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionSkipURLString/', array('String' => $string, 'apikey' => $apikey));
-		return reset($res);
-	}
-
 	public function setOptionHandleParameters($string, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionHandleParameters/', array('String' => $string, 'apikey' => $apikey));
 		return reset($res);
@@ -240,8 +270,18 @@ class Spider {
 		return reset($res);
 	}
 
+	public function setOptionSkipURLString($string, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionSkipURLString/', array('String' => $string, 'apikey' => $apikey));
+		return reset($res);
+	}
+
 	public function setOptionUserAgent($string, $apikey='') {
 		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionUserAgent/', array('String' => $string, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionHandleODataParametersVisited($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionHandleODataParametersVisited/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 
@@ -250,8 +290,33 @@ class Spider {
 		return reset($res);
 	}
 
-	public function setOptionThreadCount($integer, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionThreadCount/', array('Integer' => $integer, 'apikey' => $apikey));
+	public function setOptionMaxScansInUI($integer, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionMaxScansInUI/', array('Integer' => $integer, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionParseComments($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseComments/', array('Boolean' => $boolean, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionParseGit($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseGit/', array('Boolean' => $boolean, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionParseRobotsTxt($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseRobotsTxt/', array('Boolean' => $boolean, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionParseSVNEntries($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseSVNEntries/', array('Boolean' => $boolean, 'apikey' => $apikey));
+		return reset($res);
+	}
+
+	public function setOptionParseSitemapXml($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseSitemapXml/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 
@@ -270,38 +335,8 @@ class Spider {
 		return reset($res);
 	}
 
-	public function setOptionParseComments($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseComments/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionParseRobotsTxt($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseRobotsTxt/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionParseSitemapXml($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseSitemapXml/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionParseSVNEntries($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseSVNEntries/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionParseGit($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionParseGit/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionHandleODataParametersVisited($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionHandleODataParametersVisited/', array('Boolean' => $boolean, 'apikey' => $apikey));
-		return reset($res);
-	}
-
-	public function setOptionMaxScansInUI($integer, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionMaxScansInUI/', array('Integer' => $integer, 'apikey' => $apikey));
+	public function setOptionSendRefererHeader($boolean, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionSendRefererHeader/', array('Boolean' => $boolean, 'apikey' => $apikey));
 		return reset($res);
 	}
 
@@ -310,8 +345,8 @@ class Spider {
 		return reset($res);
 	}
 
-	public function setOptionSendRefererHeader($boolean, $apikey='') {
-		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionSendRefererHeader/', array('Boolean' => $boolean, 'apikey' => $apikey));
+	public function setOptionThreadCount($integer, $apikey='') {
+		$res = $this->zap->request($this->zap->base . 'spider/action/setOptionThreadCount/', array('Integer' => $integer, 'apikey' => $apikey));
 		return reset($res);
 	}
 
